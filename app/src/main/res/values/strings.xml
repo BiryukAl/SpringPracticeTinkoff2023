@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CryptoWallet</string>
+    <string name="actions_menu">Actions</string>
+    <string name="assets_menu">Assets</string>
+    <string name="crypto_menu">Crypto</string>
+    <string name="more_menu">More</string>
 </resources>

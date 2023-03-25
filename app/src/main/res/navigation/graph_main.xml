@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_main"
+    app:startDestination="@id/actionsFragment">
+
+    <fragment
+        android:id="@+id/actionsFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.actions.ActionsFragment"
+        android:label="fragment_actions"
+        tools:layout="@layout/fragment_actions" />
+    <fragment
+        android:id="@+id/assetsFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.assets.AssetsFragment"
+        android:label="fragment_assets"
+        tools:layout="@layout/fragment_assets" />
+    <fragment
+        android:id="@+id/cryptoFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.crypto.CryptoFragment"
+        android:label="fragment_crypto"
+        tools:layout="@layout/fragment_crypto" />
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.more.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
+</navigation>
