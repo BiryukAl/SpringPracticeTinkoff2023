@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.CryptoWallet" parent="Theme.Material3.Dark.NoActionBar">
 
-        <item name="colorPrimaryVariant">?attr/colorOnPrimary</item>
-        <item name="colorSecondaryVariant">?attr/colorOnSecondary</item>
+        <item name="colorPrimaryVariant">?attr/colorOnSecondary</item>
+        <item name="colorSecondaryVariant">?attr/colorTertiary</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
         <item name="colorPrimary">@color/md_theme_dark_primary</item>
