@@ -4,4 +4,7 @@
     <string name="assets_menu">Assets</string>
     <string name="crypto_menu">Crypto</string>
     <string name="more_menu">More</string>
+    <string name="crypto">Crypto</string>
+    <string name="in_usd">In USD</string>
+    <string name="add_a_tracked_cryptocurrency">Add a tracked cryptocurrency</string>
 </resources>

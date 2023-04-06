@@ -1,7 +1,7 @@
 package ru.tinkoff.cryptowallet.presentation.screen.more
 
-import androidx.fragment.app.Fragment
 import ru.tinkoff.cryptowallet.R
+import ru.tinkoff.cryptowallet.presentation.fragment.BaseFragment
 
-class MoreFragment: Fragment(R.layout.fragment_more) {
+class MoreFragment : BaseFragment(R.layout.fragment_more) {
 }

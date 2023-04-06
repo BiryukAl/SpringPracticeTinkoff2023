@@ -1,7 +1,8 @@
 package ru.tinkoff.cryptowallet.presentation.screen.assets
 
-import androidx.fragment.app.Fragment
 import ru.tinkoff.cryptowallet.R
+import ru.tinkoff.cryptowallet.presentation.fragment.BaseFragment
 
-class AssetsFragment: Fragment(R.layout.fragment_assets) {
+class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
+
 }
