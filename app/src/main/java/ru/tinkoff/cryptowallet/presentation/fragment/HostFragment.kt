@@ -22,7 +22,6 @@ class HostFragment: Fragment(R.layout.fragment_host) {
 
 
     companion object{
-
         const val HOST_FRAGMENT_TAG = "HOST_FRAGMENT_TAG"
 
         fun getInstance() = HostFragment()

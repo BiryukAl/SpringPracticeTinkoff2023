@@ -7,11 +7,13 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "crypto_currency")
 data class CryptoData(
-    @ColumnInfo("code_currency")
+    @ColumnInfo("code")
     @PrimaryKey
-    val codeCurrency: String,
-    @ColumnInfo("name_currency")
-    val currencyName: String,
+    val code: String,
+    @ColumnInfo("id")
+    val id: Long,
+    @ColumnInfo("name")
+    val name: String,
     @ColumnInfo("icon_link")
     val iconLink: String,
     @ColumnInfo("coast")
