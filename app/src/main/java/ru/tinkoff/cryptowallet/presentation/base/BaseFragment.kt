@@ -1,4 +1,4 @@
-package ru.tinkoff.cryptowallet.presentation.fragment
+package ru.tinkoff.cryptowallet.presentation.base
 
 import androidx.fragment.app.Fragment
 

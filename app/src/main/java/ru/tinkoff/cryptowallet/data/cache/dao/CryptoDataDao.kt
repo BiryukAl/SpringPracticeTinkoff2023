@@ -6,7 +6,7 @@ import ru.tinkoff.cryptowallet.data.cache.entities.CryptoData
 @Dao
 interface CryptoDataDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun add(data: CryptoData)
+    suspend fun add(data: CryptoData): Long
 
     @Update
     suspend fun update(data: CryptoData)
