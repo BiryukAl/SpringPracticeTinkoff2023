@@ -9,4 +9,9 @@
     <string name="add_a_tracked_cryptocurrency">Add a tracked cryptocurrency</string>
     <string name="assets">Assets</string>
     <string name="add_a_new_assets">Add a new assets</string>
+    <string name="name_asset">Name asset</string>
+    <string name="password">Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="selection_currency">Selection currency</string>
 </resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/add_name_assets"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/name_asset"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/add_password_assets"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_name_assets" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/appCompatSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:contentDescription="@string/selection_currency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_password_assets" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add_assets_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/cancel"
+        app:layout_constraintStart_toEndOf="@+id/btn_add_assets_add"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatSpinner" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add_assets_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_assets_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatSpinner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
