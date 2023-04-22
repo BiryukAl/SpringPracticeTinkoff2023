@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/actionsFragment"
-        android:name="ru.tinkoff.cryptowallet.presentation.base.screen.actions.ActionsFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.actions.ActionsFragment"
         android:label="fragment_actions"
         tools:layout="@layout/fragment_actions" />
     <fragment
         android:id="@+id/assetsFragment"
-        android:name="ru.tinkoff.cryptowallet.presentation.base.screen.assets.AssetsFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.assets.AssetsFragment"
         android:label="fragment_assets"
         tools:layout="@layout/fragment_assets" />
     <fragment
         android:id="@+id/cryptoFragment"
-        android:name="ru.tinkoff.cryptowallet.presentation.base.screen.crypto.CryptoFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.crypto.CryptoFragment"
         android:label="fragment_crypto"
         tools:layout="@layout/fragment_crypto" />
     <fragment
         android:id="@+id/moreFragment"
-        android:name="ru.tinkoff.cryptowallet.presentation.base.screen.more.MoreFragment"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.more.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
 </navigation>

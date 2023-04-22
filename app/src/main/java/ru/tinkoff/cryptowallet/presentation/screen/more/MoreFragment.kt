@@ -1,4 +1,4 @@
-package ru.tinkoff.cryptowallet.presentation.base.screen.more
+package ru.tinkoff.cryptowallet.presentation.screen.more
 
 import ru.tinkoff.cryptowallet.R
 import ru.tinkoff.cryptowallet.presentation.base.BaseFragment
