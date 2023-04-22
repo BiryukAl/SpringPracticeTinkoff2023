@@ -7,7 +7,7 @@ import javax.inject.Inject
 class AddAssetsUseCase @Inject constructor(
     private val assetsRepository: AssetsRepository,
 ) {
-    suspend operator fun invoke(assets: Assets) {
+    suspend operator fun invoke(assets: Assets): Long {
         return assetsRepository.add(assets)
     }
 }

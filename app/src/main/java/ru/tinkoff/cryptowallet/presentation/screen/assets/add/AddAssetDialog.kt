@@ -6,14 +6,15 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import ru.tinkoff.cryptowallet.R
 import ru.tinkoff.cryptowallet.databinding.DialogAddAssetBinding
 
-
+@AndroidEntryPoint
 class AddAssetDialog : DialogFragment(R.layout.dialog_add_asset) {
 
     private val viewBinding: DialogAddAssetBinding by viewBinding(DialogAddAssetBinding::bind)
-    private val viewModel by viewModels<AddAssetViewModel>()
+    private val viewModel: AddAssetViewModel by viewModels()
     private var spinnerAdapter: ArrayAdapter<String>? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,6 +38,7 @@ class AddAssetDialog : DialogFragment(R.layout.dialog_add_asset) {
                         addPasswordAssets.text.toString()
                     }
                 )
+                myDismiss()
             }
         }
     }

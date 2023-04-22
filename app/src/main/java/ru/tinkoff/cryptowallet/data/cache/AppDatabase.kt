@@ -7,8 +7,8 @@ import ru.tinkoff.cryptowallet.data.cache.dao.CryptoDataDao
 import ru.tinkoff.cryptowallet.data.cache.entities.Assets
 import ru.tinkoff.cryptowallet.data.cache.entities.CryptoData
 
-@Database(entities = [CryptoData::class, Assets::class], version = 1)
+@Database(entities = [CryptoData::class, Assets::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getCryptoDataDao(): CryptoDataDao
-    abstract fun getAssetsDAo(): AssetsDao
+    abstract fun getAssetsDao(): AssetsDao
 }

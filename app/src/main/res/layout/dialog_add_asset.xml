@@ -8,31 +8,46 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/add_name_assets"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:hint="@string/name_asset"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/add_password_assets"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:hint="@string/password"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_name_assets" />
 
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/spin_currency_selection"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
         android:contentDescription="@string/selection_currency"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_currency"
+        app:layout_constraintTop_toBottomOf="@+id/add_password_assets" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_currency"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="@string/currency"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/spin_currency_selection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_password_assets" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add_assets_cancel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/cancel"
@@ -41,7 +56,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add_assets_add"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/add"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,10 +1,12 @@
 package ru.tinkoff.cryptowallet.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import ru.tinkoff.cryptowallet.R
 import ru.tinkoff.cryptowallet.presentation.fragment.HostFragment
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val hostFragmentContainerId: Int = R.id.fragment_container_for_activity
