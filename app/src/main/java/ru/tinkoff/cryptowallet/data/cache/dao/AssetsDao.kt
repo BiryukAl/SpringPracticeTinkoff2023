@@ -20,4 +20,7 @@ interface AssetsDao {
 
     @Query("SELECT * FROM assets")
     suspend fun findAll(): List<Assets>
+
+    @Query("DELETE FROM assets WHERE id = :id")
+    suspend fun delete(id: Long): Int
 }

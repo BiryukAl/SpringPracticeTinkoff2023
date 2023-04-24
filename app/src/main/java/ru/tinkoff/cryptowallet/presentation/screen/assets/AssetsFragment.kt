@@ -1,6 +1,5 @@
 package ru.tinkoff.cryptowallet.presentation.screen.assets
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -21,10 +20,10 @@ class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
     private val viewModel: AssetsViewModel by viewModels()
     private var assetsAdapter: AssetsAdapter? = null
 
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
+    override fun onResume() {
+        super.onResume()
         updateRecyclerViewItems()
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,17 +33,14 @@ class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
     }
 
     private fun initShowAddDialog() {
-//        val dialog = AddAssetDialog.getInstance()
-
         viewBinding.btnAddAssets.setOnClickListener {
             findNavController().navigate(R.id.action_assetsFragment_to_addAssetDialog)
-//            dialog.show(childFragmentManager, AddAssetDialog.ADD_ASSET_DIALOG_TAG)
         }
     }
 
     private fun updateRecyclerViewItems() {
+        viewModel.getAllAssets()
         if (assetsAdapter != null) {
-            viewModel.getAllAssets()
             assetsAdapter.apply {
                 viewModel.assetsList.observe(viewLifecycleOwner) { assets ->
                     if (assets != null) {
@@ -53,11 +49,9 @@ class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
                 }
             }
         }
-
     }
 
     private fun initRecyclerView() {
-
         assetsAdapter = AssetsAdapter().apply {
             onItemClickListener = ::onItemClicked
         }
@@ -71,7 +65,13 @@ class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
     }
 
     private fun onItemClicked(itemPosition: Int) {
-        // TODO: Add info for assets
+        viewModel.assetsList.observe(viewLifecycleOwner) { assets ->
+            val action = AssetsFragmentDirections.actionAssetsFragmentToLogInDialog(
+                assets!![itemPosition].id ?: 1L
+            )
+            findNavController().navigate(action)
+        }
+
     }
 
     override fun onDestroy() {

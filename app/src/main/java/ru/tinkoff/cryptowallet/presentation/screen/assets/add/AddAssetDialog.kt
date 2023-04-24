@@ -52,7 +52,6 @@ class AddAssetDialog : DialogFragment(R.layout.dialog_add_asset) {
             allCurrency
         )
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         viewBinding.spinCurrencySelection.adapter = spinnerAdapter
     }
 
@@ -63,13 +62,6 @@ class AddAssetDialog : DialogFragment(R.layout.dialog_add_asset) {
     override fun onDestroy() {
         super.onDestroy()
         spinnerAdapter = null
-    }
-
-    companion object {
-
-        const val ADD_ASSET_DIALOG_TAG = "ADD_ASSET_DIALOG_TAG"
-
-        fun getInstance() = DialogFragment()
     }
 
 }

@@ -19,4 +19,8 @@ class AssetsRepositoryImpl @Inject constructor(
     override suspend fun getById(id: Long): Assets? {
         return local.getAssetsDao().findById(id)
     }
+
+    override suspend fun delete(id: Long): Int {
+        return local.getAssetsDao().delete(id)
+    }
 }

@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_assetsFragment_to_addAssetDialog"
             app:destination="@id/addAssetDialog" />
+        <action
+            android:id="@+id/action_assetsFragment_to_logInDialog"
+            app:destination="@id/logInDialog" />
     </fragment>
     <fragment
         android:id="@+id/cryptoFragment"
@@ -34,4 +37,13 @@
         android:name="ru.tinkoff.cryptowallet.presentation.screen.assets.add.AddAssetDialog"
         android:label="dialog_add_asset"
         tools:layout="@layout/dialog_add_asset" />
+    <dialog
+        android:id="@+id/logInDialog"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.assets.login.LogInDialog"
+        android:label="dialog_login_assets"
+        tools:layout="@layout/dialog_login_assets">
+        <argument
+            android:name="idAssets"
+            app:argType="long" />
+    </dialog>
 </navigation>
