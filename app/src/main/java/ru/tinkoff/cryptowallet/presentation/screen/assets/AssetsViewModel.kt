@@ -21,7 +21,7 @@ class AssetsViewModel @Inject constructor(
     val assetsList: LiveData<List<Assets>?> = _assetsList
 
 
-    fun getAllAssets() {
+    fun updateAssets() {
         viewModelScope.launch {
             _assetsList.value = getAllAssetsUseCase()
         }

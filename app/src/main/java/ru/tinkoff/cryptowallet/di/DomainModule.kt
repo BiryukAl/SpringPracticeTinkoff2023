@@ -9,13 +9,13 @@ import ru.tinkoff.cryptowallet.data.repositories.AssetsRepositoryImpl
 import ru.tinkoff.cryptowallet.data.repositories.CryptoDataRepositoryImpl
 import ru.tinkoff.cryptowallet.domain.repositories.AssetsRepository
 import ru.tinkoff.cryptowallet.domain.repositories.CryptoDataRepository
-import ru.tinkoff.cryptowallet.domain.usecase.AddCryptoCurrency
 import ru.tinkoff.cryptowallet.domain.usecase.GetAllCurrencyUseCase
 import ru.tinkoff.cryptowallet.domain.usecase.assets.AddAssetsUseCase
 import ru.tinkoff.cryptowallet.domain.usecase.assets.DeleteAssetsUseCase
 import ru.tinkoff.cryptowallet.domain.usecase.assets.GetAllAssetsUseCase
 import ru.tinkoff.cryptowallet.domain.usecase.assets.GetOneAssetUseCase
 import ru.tinkoff.cryptowallet.domain.usecase.assets.LogInAssetsUseCase
+import ru.tinkoff.cryptowallet.domain.usecase.crypto.AddCryptoCurrency
 import javax.inject.Singleton
 
 

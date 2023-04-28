@@ -25,7 +25,7 @@
             tools:src="@drawable/ic_crypto_nav" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/name_assets"
+            android:id="@+id/name_crypto"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:layout_marginStart="10dp"
@@ -38,7 +38,7 @@
             tools:text="Bitcoin" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/lock_assets"
+            android:id="@+id/coast_crypto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"

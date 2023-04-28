@@ -39,7 +39,7 @@ class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
     }
 
     private fun updateRecyclerViewItems() {
-        viewModel.getAllAssets()
+        viewModel.updateAssets()
         if (assetsAdapter != null) {
             assetsAdapter.apply {
                 viewModel.assetsList.observe(viewLifecycleOwner) { assets ->
