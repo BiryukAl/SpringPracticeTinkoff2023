@@ -19,7 +19,7 @@ class CryptoViewModel @Inject constructor(
     val cryptoList: LiveData<List<CryptoData>?> = _cryptoList
 
 
-    fun updateCryptoData() {
+    fun getCryptoData() {
         viewModelScope.launch {
             _cryptoList.value = getAllCryptoUseCase()
         }

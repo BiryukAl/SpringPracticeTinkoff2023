@@ -26,7 +26,14 @@
         android:id="@+id/cryptoFragment"
         android:name="ru.tinkoff.cryptowallet.presentation.screen.crypto.CryptoFragment"
         android:label="fragment_crypto"
-        tools:layout="@layout/fragment_crypto" />
+        tools:layout="@layout/fragment_crypto">
+        <action
+            android:id="@+id/action_cryptoFragment_to_addCryptoDialog"
+            app:destination="@id/addCryptoDialog" />
+        <action
+            android:id="@+id/action_cryptoFragment_to_deleteCryptoDialog"
+            app:destination="@id/deleteCryptoDialog" />
+    </fragment>
     <fragment
         android:id="@+id/moreFragment"
         android:name="ru.tinkoff.cryptowallet.presentation.screen.more.MoreFragment"
@@ -45,5 +52,19 @@
         <argument
             android:name="idAssets"
             app:argType="long" />
+    </dialog>
+    <dialog
+        android:id="@+id/addCryptoDialog"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.crypto.add.AddCryptoDialog"
+        android:label="dialog_add_crypto"
+        tools:layout="@layout/dialog_add_crypto" />
+    <dialog
+        android:id="@+id/deleteCryptoDialog"
+        android:name="ru.tinkoff.cryptowallet.presentation.screen.crypto.delete.DeleteCryptoDialog"
+        android:label="dialog_delete_crypto"
+        tools:layout="@layout/dialog_delete_crypto">
+        <argument
+            android:name="idCrypto"
+            app:argType="string" />
     </dialog>
 </navigation>

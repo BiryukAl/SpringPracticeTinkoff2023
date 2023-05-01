@@ -11,6 +11,9 @@ interface CryptoDataDao {
     @Update
     suspend fun update(data: CryptoData)
 
+    @Query("DELETE FROM crypto_currency WHERE id = :id")
+    suspend fun delete(id: String): Int
+
     @Query("SELECT * FROM crypto_currency WHERE code = :code")
     suspend fun findByCode(code: String): CryptoData
 

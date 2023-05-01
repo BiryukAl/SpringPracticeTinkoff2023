@@ -3,16 +3,16 @@ package ru.tinkoff.cryptowallet.presentation.screen.assets.login
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.tinkoff.cryptowallet.R
 import ru.tinkoff.cryptowallet.databinding.DialogLoginAssetsBinding
+import ru.tinkoff.cryptowallet.presentation.base.BaseDialog
 
 @AndroidEntryPoint
-class LogInDialog : DialogFragment(R.layout.dialog_login_assets) {
+class LogInDialog : BaseDialog(R.layout.dialog_login_assets) {
 
     private val viewBinding: DialogLoginAssetsBinding by viewBinding(DialogLoginAssetsBinding::bind)
     private val viewModel: LoginViewModel by viewModels()
@@ -36,7 +36,7 @@ class LogInDialog : DialogFragment(R.layout.dialog_login_assets) {
                     Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
-                    myDismiss()
+                    dismiss()
                 }
             }
             btnDeleteAssets.setOnClickListener {
@@ -50,7 +50,5 @@ class LogInDialog : DialogFragment(R.layout.dialog_login_assets) {
         }
     }
 
-    private fun myDismiss() {
-        this.dismiss()
-    }
+
 }

@@ -7,7 +7,7 @@ class GetAllCurrencyUseCase @Inject constructor(
     private val cryptoDataRepository: CryptoDataRepository,
 ) {
     suspend operator fun invoke(): List<String> {
-        val list = cryptoDataRepository.getAll().map { it.code }
+        val list = cryptoDataRepository.getAllUses().map { it.code }
         val list2: MutableList<String> = list as MutableList<String>
         list2.add("USD")
         list2.add("RUB")

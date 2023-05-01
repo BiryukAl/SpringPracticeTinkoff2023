@@ -3,15 +3,15 @@ package ru.tinkoff.cryptowallet.presentation.screen.assets.add
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.tinkoff.cryptowallet.R
 import ru.tinkoff.cryptowallet.databinding.DialogAddAssetBinding
+import ru.tinkoff.cryptowallet.presentation.base.BaseDialog
 
 @AndroidEntryPoint
-class AddAssetDialog : DialogFragment(R.layout.dialog_add_asset) {
+class AddAssetDialog : BaseDialog(R.layout.dialog_add_asset) {
 
     private val viewBinding: DialogAddAssetBinding by viewBinding(DialogAddAssetBinding::bind)
     private val viewModel: AddAssetViewModel by viewModels()
@@ -26,19 +26,19 @@ class AddAssetDialog : DialogFragment(R.layout.dialog_add_asset) {
     private fun initBtn() {
         with(viewBinding) {
             btnAddAssetsCancel.setOnClickListener {
-                myDismiss()
+                dismiss()
             }
             btnAddAssetsAdd.setOnClickListener {
                 viewModel.addAssets(
                     addNameAssets.text.toString(),
-                    spinCurrencySelection.textAlignment.toString(),
+                    spinCurrencySelection.selectedItem.toString(),
                     if (addPasswordAssets.text.toString() == "") {
                         null
                     } else {
                         addPasswordAssets.text.toString()
                     }
                 )
-                myDismiss()
+                dismiss()
             }
         }
     }
@@ -46,18 +46,17 @@ class AddAssetDialog : DialogFragment(R.layout.dialog_add_asset) {
     private fun initSpinner() {
         val allCurrency = viewModel.getAllCurrency()
 
-        val spinnerAdapter = ArrayAdapter(
+        val spinnerAdapter1 = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_dropdown_item,
             allCurrency
         )
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerAdapter = spinnerAdapter1
         viewBinding.spinCurrencySelection.adapter = spinnerAdapter
     }
 
-    private fun myDismiss() {
-        this.dismiss()
-    }
 
     override fun onDestroy() {
         super.onDestroy()

@@ -3,6 +3,7 @@ package ru.tinkoff.cryptowallet.presentation.screen.crypto
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -27,9 +28,9 @@ class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
     }
 
     private fun initBtnShowAddDialog() {
-        /*viewBinding.btnAddCrypto.setOnClickListener{
-            findNavController().navigate(R.id.ac)
-        }*/
+        viewBinding.btnAddCrypto.setOnClickListener {
+            findNavController().navigate(R.id.action_cryptoFragment_to_addCryptoDialog)
+        }
     }
 
     private fun initRecyclerViewItems() {
@@ -46,14 +47,15 @@ class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
     }
 
     private fun onItemClicked(itemPosition: Int) {
-        /*viewModel.cryptoList.observe(viewLifecycleOwner) { crypto ->
-            val action = CryptoFragmentDirection.
-        findNavController().navigate(action)
-        }*/
+        viewModel.cryptoList.observe(viewLifecycleOwner) { crypto ->
+            val action =
+                CryptoFragmentDirections.actionCryptoFragmentToDeleteCryptoDialog(crypto!![itemPosition].id)
+            findNavController().navigate(action)
+        }
     }
 
     private fun updateRecyclerViewItems() {
-        viewModel.updateCryptoData()
+        viewModel.getCryptoData()
         if (cryptoAdapter != null) {
             cryptoAdapter.apply {
                 viewModel.cryptoList.observe(viewLifecycleOwner) { cryptoData ->

@@ -11,11 +11,11 @@ data class CryptoData(
     @PrimaryKey
     val code: String,
     @ColumnInfo("id")
-    val id: Long,
+    val id: String,
     @ColumnInfo("name")
     val name: String,
     @ColumnInfo("icon_link")
     val iconLink: String,
     @ColumnInfo("coast")
-    val coast: Long,
+    val coast: Double,
 )
