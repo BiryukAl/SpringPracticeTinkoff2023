@@ -1,5 +1,7 @@
 package ru.tinkoff.cryptowallet.presentation.screen.assets.add
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,6 +17,10 @@ class AddAssetViewModel @Inject constructor(
     private val addAssetsUseCase: AddAssetsUseCase,
     private val getCurrency: GetAllCurrencyUseCase,
 ) : BaseViewModel() {
+
+    private val _allCurrency: MutableLiveData<List<String>?> = MutableLiveData(listOf())
+    val allCurrency: LiveData<List<String>?> = _allCurrency
+
     fun addAssets(name: String, currency: String, password: String?) {
         val assets = Assets(null, name, currency, password)
         viewModelScope.launch {
@@ -22,13 +28,9 @@ class AddAssetViewModel @Inject constructor(
         }
     }
 
-    fun getAllCurrency(): List<String> {
-        var allCurrency: List<String>? = null
-
+    fun updateAllCurrency() {
         viewModelScope.launch {
-            allCurrency = getCurrency()
+            _allCurrency.value = getCurrency()
         }
-
-        return allCurrency ?: listOf()
     }
 }

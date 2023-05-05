@@ -44,17 +44,19 @@ class AddAssetDialog : BaseDialog(R.layout.dialog_add_asset) {
     }
 
     private fun initSpinner() {
-        val allCurrency = viewModel.getAllCurrency()
+        viewModel.updateAllCurrency()
+        viewModel.allCurrency.observe(viewLifecycleOwner) { currency ->
+            val newSpinnerAdapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                currency!!
+            )
+            newSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerAdapter = newSpinnerAdapter
+            viewBinding.spinCurrencySelection.adapter = spinnerAdapter
+        }
 
-        val spinnerAdapter1 = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_dropdown_item,
-            allCurrency
-        )
 
-        spinnerAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerAdapter = spinnerAdapter1
-        viewBinding.spinCurrencySelection.adapter = spinnerAdapter
     }
 
 

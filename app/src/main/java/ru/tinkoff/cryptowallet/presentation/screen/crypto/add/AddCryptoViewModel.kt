@@ -1,9 +1,10 @@
 package ru.tinkoff.cryptowallet.presentation.screen.crypto.add
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import ru.tinkoff.cryptowallet.data.cloud.model.CryptoCoinItem
 import ru.tinkoff.cryptowallet.domain.usecase.crypto.AddCryptoCurrencyUseCase
 import ru.tinkoff.cryptowallet.domain.usecase.crypto.GetAllListCryptoUseCase
 import ru.tinkoff.cryptowallet.presentation.base.BaseViewModel
@@ -15,21 +16,19 @@ class AddCryptoViewModel @Inject constructor(
     private val getAllListCryptoUseCase: GetAllListCryptoUseCase,
 ) : BaseViewModel() {
 
+    private val _allCryptoCurrency: MutableLiveData<List<String>> = MutableLiveData(listOf())
+    val allCryptoCurrency: LiveData<List<String>> = _allCryptoCurrency
+
     fun addCryptoCurrency(idCurrency: String) {
         viewModelScope.launch {
             addCryptoCurrencyUseCase(idCurrency)
         }
     }
 
-    fun getAllListCurrency(): List<String> {
-        var list: List<CryptoCoinItem> = listOf()
-
+    fun updateAllListCurrency() {
         viewModelScope.launch {
-            list = getAllListCryptoUseCase()
+            _allCryptoCurrency.value = getAllListCryptoUseCase().map { it.id!! }
         }
-
-        return list.map { it.id!! }
-
     }
 
 }

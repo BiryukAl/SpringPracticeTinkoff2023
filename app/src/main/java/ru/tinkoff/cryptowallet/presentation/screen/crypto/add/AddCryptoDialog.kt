@@ -25,16 +25,17 @@ class AddCryptoDialog : BaseDialog(R.layout.dialog_add_crypto) {
     }
 
     private fun initSpinner() {
-        val allCryptoList = viewModel.getAllListCurrency()
-
-        val spinnerAdapter1 = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_dropdown_item,
-            allCryptoList
-        )
-        spinnerAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerAdapter = spinnerAdapter1
-        viewBinding.spAddCrypto.adapter = spinnerAdapter
+        viewModel.updateAllListCurrency()
+        viewModel.allCryptoCurrency.observe(viewLifecycleOwner) { currency ->
+            val newSpinnerAdapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                currency!!
+            )
+            newSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerAdapter = newSpinnerAdapter
+            viewBinding.spAddCrypto.adapter = spinnerAdapter
+        }
     }
 
     private fun initBtn() {
@@ -42,6 +43,7 @@ class AddCryptoDialog : BaseDialog(R.layout.dialog_add_crypto) {
             btnCancelCryptoAdd.setOnClickListener { dismiss() }
             btnAddCryptoAdd.setOnClickListener {
                 viewModel.addCryptoCurrency(spAddCrypto.selectedItem.toString())
+                dismiss()
             }
         }
     }
