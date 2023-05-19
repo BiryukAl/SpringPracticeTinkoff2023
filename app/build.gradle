@@ -34,14 +34,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
+    dependenciesInfo {
+        includeInApk false
+        includeInBundle false
+    }
+    ndkVersion '21.4.7075529'
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
 
-    def core_ktx_version = "1.9.0"
+    def core_ktx_version = "1.10.0"
     implementation("androidx.core:core-ktx:$core_ktx_version")
 
     def appcompat_version = "1.6.1"
@@ -56,7 +62,7 @@ dependencies {
     def android_material_version = "1.8.0"
     implementation("com.google.android.material:material:$android_material_version")
 
-    def fragment_version = "1.5.6"
+    def fragment_version = "1.5.7"
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
 
     def nav_version = "2.5.3"
@@ -83,6 +89,10 @@ dependencies {
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    def glide_version = '4.14.2'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
 //    For Test
     //noinspection GradleDynamicVersion

@@ -6,7 +6,7 @@ import javax.inject.Inject
 class AddCryptoCurrencyUseCase @Inject constructor(
     private val repository: CryptoDataRepository,
 ) {
-    suspend operator fun invoke(id: String): Long {
-        return repository.addCryptoCurrency(id)
+    suspend operator fun invoke(id: String) {
+        repository.addCryptoCurrency(id)
     }
 }

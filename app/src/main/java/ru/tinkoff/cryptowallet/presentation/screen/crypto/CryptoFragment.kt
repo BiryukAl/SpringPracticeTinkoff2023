@@ -12,14 +12,16 @@ import ru.tinkoff.cryptowallet.R
 import ru.tinkoff.cryptowallet.databinding.FragmentCryptoBinding
 import ru.tinkoff.cryptowallet.presentation.adapters.CryptoAdapter
 import ru.tinkoff.cryptowallet.presentation.base.BaseFragment
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
 
     private val viewBinding: FragmentCryptoBinding by viewBinding(FragmentCryptoBinding::bind)
     private val viewModel: CryptoViewModel by viewModels()
-    private var cryptoAdapter: CryptoAdapter? = null
 
+    @Inject
+    lateinit var cryptoAdapter: CryptoAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,7 +36,7 @@ class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
     }
 
     private fun initRecyclerViewItems() {
-        cryptoAdapter = CryptoAdapter().apply {
+        cryptoAdapter.apply {
             onItemClickListener = ::onItemClicked
         }
         updateRecyclerViewItems()
@@ -56,12 +58,10 @@ class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
 
     private fun updateRecyclerViewItems() {
         viewModel.getCryptoData()
-        if (cryptoAdapter != null) {
-            cryptoAdapter.apply {
-                viewModel.cryptoList.observe(viewLifecycleOwner) { cryptoData ->
-                    if (cryptoData != null) {
-                        this?.listItems = cryptoData
-                    }
+        cryptoAdapter.apply {
+            viewModel.cryptoList.observe(viewLifecycleOwner) { cryptoData ->
+                if (cryptoData != null) {
+                    this.listItems = cryptoData
                 }
             }
         }

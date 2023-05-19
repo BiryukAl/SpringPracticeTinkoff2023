@@ -10,7 +10,7 @@ interface CryptoDataRepository {
 
     suspend fun updateAllUses(): List<CryptoData>
 
-    suspend fun addCryptoCurrency(id: String): Long
+    suspend fun addCryptoCurrency(id: String)
 
     suspend fun deleteCryptoCurrency(id: String): Int
 }

@@ -1,5 +1,8 @@
 package ru.tinkoff.cryptowallet.data.repositories
 
+import android.util.Log
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import ru.tinkoff.cryptowallet.data.cache.AppDatabase
 import ru.tinkoff.cryptowallet.data.cache.entities.CryptoData
 import ru.tinkoff.cryptowallet.data.cloud.model.CryptoCoinItem
@@ -20,7 +23,7 @@ class CryptoDataRepositoryImpl @Inject constructor(
 
     override suspend fun getAllList(): List<CryptoCoinItem> {
 
-        return remoteSource.getCryptoCoinsPrice(limitPage = 20)
+        return remoteSource.getCryptoCoinsPrice(/*limitPage = 20*/).take(20)
             .map { mapper.mapCryptoPriseToCryptoCoin(it) }
 
 //        return remoteSource.getRatesCryptoCurrency() // To much
@@ -37,13 +40,18 @@ class CryptoDataRepositoryImpl @Inject constructor(
         return localSource.getCryptoDataDao().findAll()
     }
 
-    override suspend fun addCryptoCurrency(id: String): Long {
+    override suspend fun addCryptoCurrency(id: String) {
+        Log.d("addCryptoCurrency", "Start")
+        withContext(Dispatchers.IO) {
 
-        val remoteData = remoteSource.getCryptoCoinsPrice(idCurrency = id)
+            val remoteData = remoteSource.getCryptoCoinsPrice(idCurrency = id)
+            Log.d("addCryptoCurrency: remoteData", "$remoteData")
+            val newLocalData = mapper.mapCryptoPriseResponseToCryptoData(remoteData).first()
+            Log.d("addCryptoCurrency: newLocalData", "$newLocalData")
+            localSource.getCryptoDataDao().add(newLocalData)
+        }
+        Log.d("addCryptoCurrency", "End")
 
-        val newLocalData = mapper.mapCryptoPriseResponseToCryptoData(remoteData).first()
-
-        return localSource.getCryptoDataDao().add(newLocalData)
     }
 
     override suspend fun deleteCryptoCurrency(id: String): Int {

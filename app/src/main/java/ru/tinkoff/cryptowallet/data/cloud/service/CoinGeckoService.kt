@@ -16,7 +16,7 @@ interface CoinGeckoService {
     suspend fun getCryptoCoinsPrice(
         @Query("vs_currency") vsCurrency: String = "usd", // example: (usd, eur, jpy, etc.)
         @Query("ids") idCurrency: String = "", // example: (bitcoin, dogecoin)
-        @Query("per_page") limitPage: Int = 100, // 1..250
+//        @Query("per_page") limitPage: Int = 20, // 1..250
         @Query("page") page: Int = 1,
     ): CryptoPriseResponse
 

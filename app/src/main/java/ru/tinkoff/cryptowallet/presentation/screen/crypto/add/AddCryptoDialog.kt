@@ -42,8 +42,9 @@ class AddCryptoDialog : BaseDialog(R.layout.dialog_add_crypto) {
         with(viewBinding) {
             btnCancelCryptoAdd.setOnClickListener { dismiss() }
             btnAddCryptoAdd.setOnClickListener {
-                viewModel.addCryptoCurrency(spAddCrypto.selectedItem.toString())
-                dismiss()
+                val currency = spAddCrypto.selectedItem.toString()
+                viewModel.addCryptoCurrency(currency)
+//                dismiss()
             }
         }
     }
