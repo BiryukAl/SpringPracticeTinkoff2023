@@ -7,7 +7,7 @@ class DeleteCryptoUseCase @Inject constructor(
     private val repository: CryptoDataRepository,
 ) {
 
-    suspend operator fun invoke(id: String): Int {
+    suspend operator fun invoke(id: String) {
         return repository.deleteCryptoCurrency(id)
     }
 }

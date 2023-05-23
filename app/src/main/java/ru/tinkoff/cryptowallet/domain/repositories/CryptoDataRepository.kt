@@ -12,5 +12,5 @@ interface CryptoDataRepository {
 
     suspend fun addCryptoCurrency(id: String)
 
-    suspend fun deleteCryptoCurrency(id: String): Int
+    suspend fun deleteCryptoCurrency(id: String)
 }

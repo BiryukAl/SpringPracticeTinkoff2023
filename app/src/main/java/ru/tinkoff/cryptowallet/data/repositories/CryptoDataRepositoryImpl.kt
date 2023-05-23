@@ -54,7 +54,9 @@ class CryptoDataRepositoryImpl @Inject constructor(
 
     }
 
-    override suspend fun deleteCryptoCurrency(id: String): Int {
-        return localSource.getCryptoDataDao().delete(id)
+    override suspend fun deleteCryptoCurrency(id: String) {
+        withContext(Dispatchers.IO) {
+            localSource.getCryptoDataDao().delete(id)
+        }
     }
 }

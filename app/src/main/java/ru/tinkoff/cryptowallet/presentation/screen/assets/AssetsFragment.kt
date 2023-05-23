@@ -67,11 +67,10 @@ class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
     private fun onItemClicked(itemPosition: Int) {
         viewModel.assetsList.observe(viewLifecycleOwner) { assets ->
             val action = AssetsFragmentDirections.actionAssetsFragmentToLogInDialog(
-                assets!![itemPosition].id ?: 1L
+                assets!![itemPosition].id!!
             )
             findNavController().navigate(action)
         }
-
     }
 
     override fun onDestroy() {

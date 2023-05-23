@@ -40,7 +40,11 @@ class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
             onItemClickListener = ::onItemClicked
         }
         updateRecyclerViewItems()
-        val manager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        val manager = LinearLayoutManager(
+            requireContext(),
+            RecyclerView.VERTICAL,
+            false
+        )
         viewBinding.listCrypto.apply {
             adapter = cryptoAdapter
             layoutManager = manager
@@ -51,7 +55,9 @@ class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
     private fun onItemClicked(itemPosition: Int) {
         viewModel.cryptoList.observe(viewLifecycleOwner) { crypto ->
             val action =
-                CryptoFragmentDirections.actionCryptoFragmentToDeleteCryptoDialog(crypto!![itemPosition].id)
+                CryptoFragmentDirections.actionCryptoFragmentToDeleteCryptoDialog(
+                    crypto!![itemPosition].id
+                )
             findNavController().navigate(action)
         }
     }
