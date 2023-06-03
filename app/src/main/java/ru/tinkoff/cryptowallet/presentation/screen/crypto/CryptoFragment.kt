@@ -1,5 +1,6 @@
 package ru.tinkoff.cryptowallet.presentation.screen.crypto
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -22,6 +23,12 @@ class CryptoFragment : BaseFragment(R.layout.fragment_crypto) {
 
     @Inject
     lateinit var cryptoAdapter: CryptoAdapter
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onResume() {
+        super.onResume()
+        cryptoAdapter.notifyDataSetChanged()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

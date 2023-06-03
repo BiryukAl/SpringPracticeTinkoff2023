@@ -1,5 +1,6 @@
 package ru.tinkoff.cryptowallet.presentation.screen.assets
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -20,9 +21,12 @@ class AssetsFragment : BaseFragment(R.layout.fragment_assets) {
     private val viewModel: AssetsViewModel by viewModels()
     private var assetsAdapter: AssetsAdapter? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
-        updateRecyclerViewItems()
+        if (assetsAdapter != null) {
+            assetsAdapter?.notifyDataSetChanged()
+        }
 
     }
 

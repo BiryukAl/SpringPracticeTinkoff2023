@@ -1,10 +1,8 @@
 package ru.tinkoff.cryptowallet.presentation.screen.assets.login
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -20,21 +18,6 @@ class LogInDialog : BaseDialog(R.layout.dialog_login_assets) {
     private val viewModel: LoginViewModel by viewModels()
     private val args by navArgs<LogInDialogArgs>()
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        /*https://stackoverflow.com/questions/63007406/dialogfragment-triggered-but-not-showing-the-layout-in-navigation-architecture*/
-        return this.activity?.let {
-            val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater
-
-            val layoutId: Int = R.layout.dialog_login_assets
-
-            val rootView = inflater.inflate(layoutId, null)
-            builder.setView(rootView)
-
-            val alertDialog = builder.create()
-            alertDialog
-        } ?: throw IllegalStateException("Activity cannot be null")
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,11 +42,7 @@ class LogInDialog : BaseDialog(R.layout.dialog_login_assets) {
             }
             btnDeleteAssets.setOnClickListener {
                 val success = viewModel.delete(args.idAssets)
-                if (success) {
-                    Toast.makeText(requireContext(), "Delete", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(requireContext(), "Delete", Toast.LENGTH_SHORT).show()
             }
         }
     }

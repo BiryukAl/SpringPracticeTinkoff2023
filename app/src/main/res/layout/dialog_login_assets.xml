@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/password_assets"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="48dp"
         android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="parent"

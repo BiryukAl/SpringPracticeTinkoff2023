@@ -18,4 +18,11 @@
     <string name="delete">Delete</string>
     <string name="login">LogIn</string>
     <string name="confirm_delete">Delete?</string>
+    <string name="switch_show_monday_present_activity">Switch show monday present activity</string>
+    <string name="search">Search</string>
+    <string name="income">Income</string>
+    <string name="expenses">Expenses</string>
+    <string name="balance">Balance</string>
+    <string name="_0_00">0.00</string>
+    <string name="more">More</string>
 </resources>
